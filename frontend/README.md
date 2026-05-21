@@ -1,70 +1,242 @@
-# Getting Started with Create React App
+# ⚡ TaskFlow — Team Task Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack Team Task Management web application built with React, Node.js, Express, and MongoDB.
+Think of it as a simplified version of Trello or Asana — where teams can create projects, assign tasks, and track progress in real time.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🌐 Live Demo
 
-### `npm start`
+- **Frontend:** https://illustrious-inspiration-production-80d7.up.railway.app
+- **Backend API:** https://team-task-manager-production-686a.up.railway.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
 
-### `npm test`
+- **User Authentication** — Signup, Login with JWT-based secure sessions
+- **Project Management** — Create projects, add/remove members
+- **Role-Based Access** — Admin (full control) and Member (view & update assigned tasks)
+- **Task Management** — Create tasks with Title, Description, Due Date, Priority, and Status
+- **Kanban Board** — Visualize tasks in To Do / In Progress / Done columns
+- **Dashboard** — View total tasks, tasks by status, tasks per user, and overdue tasks
+- **Fully Deployed** — Live on Railway with MongoDB Atlas database
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React.js, React Router, Axios |
+| Backend | Node.js, Express.js |
+| Database | MongoDB (NoSQL) with Mongoose |
+| Authentication | JWT (JSON Web Tokens) + bcryptjs |
+| Deployment | Railway |
+| Version Control | GitHub |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Project Structure
 
-### `npm run eject`
+```
+team-task-manager/
+├── backend/
+│   ├── src/
+│   │   ├── middleware/
+│   │   │   └── auth.js          # JWT authentication middleware
+│   │   ├── models/
+│   │   │   ├── User.js          # User schema
+│   │   │   ├── Project.js       # Project schema
+│   │   │   └── Task.js          # Task schema
+│   │   ├── routes/
+│   │   │   ├── auth.js          # Signup, Login, Me routes
+│   │   │   ├── projects.js      # Project CRUD routes
+│   │   │   ├── tasks.js         # Task CRUD routes
+│   │   │   └── dashboard.js     # Dashboard stats routes
+│   │   └── index.js             # Express app entry point
+│   ├── .env.example
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Navbar.js        # Navigation bar
+│   │   ├── context/
+│   │   │   └── AuthContext.js   # Global auth state
+│   │   ├── pages/
+│   │   │   ├── Login.js         # Login page
+│   │   │   ├── Signup.js        # Signup page
+│   │   │   ├── ProjectList.js   # All projects page
+│   │   │   ├── ProjectDetail.js # Kanban board page
+│   │   │   └── Dashboard.js     # Stats dashboard page
+│   │   ├── utils/
+│   │   │   └── api.js           # Axios instance with auth
+│   │   ├── App.js               # Routes and layout
+│   │   └── App.css              # Global styles
+│   └── package.json
+└── README.md
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Local Setup & Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
+- Node.js v18+ installed
+- MongoDB Atlas account (free) or local MongoDB
+- Git installed
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### 1. Clone the Repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/Adimehta10/team-task-manager.git
+cd team-task-manager
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 2. Backend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd backend
+npm install
+```
 
-### Analyzing the Bundle Size
+Create a `.env` file inside the `backend` folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+FRONTEND_URL=http://localhost:3000
+```
 
-### Making a Progressive Web App
+Start the backend server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm run dev
+```
 
-### Advanced Configuration
+Backend runs on: `http://localhost:5000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### 3. Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Open a new terminal:
 
-### `npm run build` fails to minify
+```bash
+cd frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Create a `.env` file inside the `frontend` folder:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+Start the frontend:
+
+```bash
+npm start
+```
+
+Frontend runs on: `http://localhost:3000`
+
+---
+
+## 🔗 API Endpoints
+
+### Auth
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/signup` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| GET | `/api/auth/me` | Get current user |
+
+### Projects
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/projects` | Get all projects |
+| POST | `/api/projects` | Create project |
+| GET | `/api/projects/:id` | Get single project |
+| POST | `/api/projects/:id/members` | Add member |
+| DELETE | `/api/projects/:id/members/:userId` | Remove member |
+| DELETE | `/api/projects/:id` | Delete project |
+
+### Tasks
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/tasks/project/:projectId` | Get tasks for project |
+| POST | `/api/tasks` | Create task |
+| PUT | `/api/tasks/:id` | Update task |
+| DELETE | `/api/tasks/:id` | Delete task |
+
+### Dashboard
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/dashboard/:projectId` | Get project stats |
+
+---
+
+## 🚢 Deployment
+
+Both frontend and backend are deployed on **Railway**.
+
+### Backend Deployment
+- Root Directory: `backend`
+- Start Command: `npm start`
+- Environment variables set in Railway dashboard
+
+### Frontend Deployment
+- Root Directory: `frontend`
+- Build Command: `npm install && npm run build`
+- Start Command: `npx serve -s build -l 3000`
+- Environment variable: `REACT_APP_API_URL` set to live backend URL
+
+---
+
+## 👤 Role Permissions
+
+| Feature | Admin | Member |
+|---------|-------|--------|
+| Create tasks | ✅ | ❌ |
+| Delete tasks | ✅ | ❌ |
+| Update any task | ✅ | ❌ |
+| Update assigned task status | ✅ | ✅ |
+| Add members | ✅ | ❌ |
+| Remove members | ✅ | ❌ |
+| View dashboard | ✅ | ✅ |
+| View tasks | ✅ | ✅ |
+
+---
+
+## 📸 Screenshots
+
+### Login Page
+Clean dark-themed login with JWT authentication
+
+### Projects Dashboard
+Grid view of all projects with member count
+
+### Kanban Board
+Three-column task board: To Do / In Progress / Done
+
+### Analytics Dashboard
+Real-time stats: total tasks, status breakdown, overdue tasks, tasks per user
+
+---
+
+## 👨‍💻 Author
+
+**Aditya Mehta**
+- GitHub: [@Adimehta10](https://github.com/Adimehta10)
+
+---
+
+## 📄 License
+
+This project is built as part of a full-stack development assessment.
