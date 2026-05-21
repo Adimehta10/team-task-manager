@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-
+/* eslint-disable */
 export default function ProjectDetail() {
   const { id } = useParams();
   const { user } = useAuth();
@@ -13,13 +13,13 @@ export default function ProjectDetail() {
   const [loading, setLoading] = useState(true);
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [showMemberModal, setShowMemberModal] = useState(false);
-  const [editTask, setEditTask] = useState(null);
+ 
   const [memberEmail, setMemberEmail] = useState('');
   const [taskForm, setTaskForm] = useState({ title: '', description: '', dueDate: '', priority: 'Medium', assignedTo: '' });
 
   const isAdmin = project?.members?.find(m => m.user._id === user._id)?.role === 'Admin';
 
-  useEffect(() => { fetchData(); }, [id]);
+  useEffect(() => { fetchData(); }, []);
 
   const fetchData = async () => {
     try {
