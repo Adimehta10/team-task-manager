@@ -1,4 +1,3 @@
-/* ── DASHBOARD CSS ── */
 :root {
   --c-todo: #f59e0b;
   --c-prog: #6366f1;
@@ -16,7 +15,7 @@
   padding-bottom: 3rem;
 }
 
-/* ── LOADING ── */
+
 .dash-loading {
   display: flex;
   flex-direction: column;
@@ -38,7 +37,7 @@
 
 @keyframes dashSpin { to { transform: rotate(360deg); } }
 
-/* ── HEADER ── */
+
 .dash-header {
   display: flex;
   align-items: flex-start;
@@ -104,7 +103,7 @@
   50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-/* ── STATS GRID ── */
+
 .dash-stats-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -166,7 +165,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ── MAIN GRID ── */
+
 .dash-main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -177,7 +176,7 @@
 @media (max-width: 900px) { .dash-main-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .dash-main-grid { grid-template-columns: 1fr; } }
 
-/* ── CARDS ── */
+
 .dash-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -199,7 +198,7 @@
   gap: 8px;
 }
 
-/* ── RING ── */
+
 .dash-ring-card { display: flex; flex-direction: column; align-items: center; }
 .dash-ring-wrap { position: relative; width: 160px; height: 160px; margin: 0 auto 1.25rem; }
 .dash-ring-svg { width: 100%; height: 100%; }
@@ -226,7 +225,7 @@
 .dash-legend-label { flex: 1; color: var(--text2); }
 .dash-legend-val { font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; }
 
-/* ── BARS ── */
+
 .dash-bars { display: flex; flex-direction: column; gap: 14px; margin-bottom: 1.5rem; }
 .dash-bar-row { display: flex; align-items: center; gap: 10px; }
 .dash-bar-label { font-size: 0.8rem; color: var(--text2); width: 80px; flex-shrink: 0; font-weight: 500; }
@@ -245,7 +244,7 @@
 }
 .dash-stacked-bar div { transition: width 1s ease; }
 
-/* ── TEAM ── */
+
 .dash-team-list { display: flex; flex-direction: column; gap: 12px; }
 .dash-team-item { display: flex; align-items: center; gap: 10px; }
 .dash-team-avatar {
@@ -261,7 +260,7 @@
 .dash-team-bar { height: 100%; border-radius: 999px; transition: width 1s cubic-bezier(0.34,1.56,0.64,1); }
 .dash-team-count { font-size: 0.875rem; font-weight: 700; color: var(--text); font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
 
-/* ── OVERDUE ── */
+
 .dash-overdue-badge {
   background: rgba(239,68,68,0.1);
   color: var(--danger, #ef4444);
@@ -309,7 +308,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ── MEMBERS ── */
+
 .dash-members-list { display: flex; flex-direction: column; gap: 10px; }
 .dash-member-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .dash-member-item:last-child { border-bottom: none; }
@@ -321,7 +320,7 @@
 .dash-role-admin { background: rgba(99,102,241,0.1); color: #6366f1; border: 1px solid rgba(99,102,241,0.2); }
 .dash-role-member { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
 
-/* ── QUICK STATS ── */
+
 .dash-quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
 .dash-quick-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem; text-align: center; }
 .dash-quick-val { font-size: 1.5rem; font-weight: 800; color: var(--text); font-family: 'JetBrains Mono', monospace; line-height: 1; margin-bottom: 4px; }
@@ -333,7 +332,7 @@
 .dash-health-track { height: 10px; background: var(--border); border-radius: 999px; overflow: hidden; }
 .dash-health-fill { height: 100%; border-radius: 999px; transition: width 1s ease; }
 
-/* ── EMPTY ── */
+
 .dash-empty { display: flex; flex-direction: column; align-items: center; padding: 2rem; gap: 8px; opacity: 0.5; }
 .dash-empty span { font-size: 2rem; }
 .dash-empty p { font-size: 0.875rem; color: var(--text2); text-align: center; }
