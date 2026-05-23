@@ -28,20 +28,20 @@ export default function Auth() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // EMAIL VALIDATION
+    
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(form.email)) {
       toast.error('Please enter a valid email address');
       return;
     }
 
-    // NAME VALIDATION
+    
     if (!isLogin && form.name.trim().length < 2) {
       toast.error('Please enter your full name');
       return;
     }
 
-    // PASSWORD VALIDATION
+   
     if (!isLogin && form.password.length < 6) {
       toast.error('Password must be at least 6 characters');
       return;
