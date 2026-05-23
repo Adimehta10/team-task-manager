@@ -27,17 +27,32 @@ export default function Auth() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // EMAIL VALIDATION
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(form.email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    // NAME VALIDATION
+    if (!isLogin && form.name.trim().length < 2) {
+      toast.error('Please enter your full name');
+      return;
+    }
+
+    // PASSWORD VALIDATION
+    if (!isLogin && form.password.length < 6) {
+      toast.error('Password must be at least 6 characters');
+      return;
+    }
+
     setLoading(true);
     try {
       if (isLogin) {
         await login(form.email, form.password);
         toast.success('Welcome back! 👋');
       } else {
-        if (form.password.length < 6) {
-          toast.error('Password must be at least 6 characters');
-          setLoading(false);
-          return;
-        }
         await signup(form.name, form.email, form.password);
         toast.success('Account created! 🎉');
       }
@@ -123,7 +138,13 @@ export default function Auth() {
                   <label>Full Name</label>
                   <div className="af-input-wrap">
                     <span className="af-icon">👤</span>
-                    <input name="name" value={form.name} onChange={handleChange} placeholder="Aditya Kumar" required />
+                    <input
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Aditya Kumar"
+                      required
+                    />
                   </div>
                 </div>
               )}
@@ -131,14 +152,28 @@ export default function Auth() {
                 <label>Email Address</label>
                 <div className="af-input-wrap">
                   <span className="af-icon">✉️</span>
-                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@company.com" required />
+                  <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="you@company.com"
+                    required
+                  />
                 </div>
               </div>
               <div className="af-group">
                 <label>Password</label>
                 <div className="af-input-wrap">
                   <span className="af-icon">🔒</span>
-                  <input name="password" type="password" value={form.password} onChange={handleChange} placeholder={isLogin ? 'Your password' : 'Min. 6 characters'} required />
+                  <input
+                    name="password"
+                    type="password"
+                    value={form.password}
+                    onChange={handleChange}
+                    placeholder={isLogin ? 'Your password' : 'Min. 6 characters'}
+                    required
+                  />
                 </div>
               </div>
               <button type="submit" className="af-submit" disabled={loading}>

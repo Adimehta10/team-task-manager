@@ -9,13 +9,17 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
 
-// SIGNUP
+
 router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password)
       return res.status(400).json({ message: 'All fields are required' });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+  return res.status(400).json({ message: 'Please enter a valid email address' });
+}
 
     if (password.length < 6)
       return res.status(400).json({ message: 'Password must be at least 6 characters' });
@@ -37,13 +41,17 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// LOGIN
+
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
     if (!email || !password)
       return res.status(400).json({ message: 'Email and password required' });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+  return res.status(400).json({ message: 'Please enter a valid email address' });
+}
 
     const user = await User.findOne({ email });
 
